@@ -6,9 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import com.curso.enume.entity.Curso;
 import com.curso.enume.exception.NegocioExcpetion;
@@ -19,7 +17,6 @@ public class CursoService {
 
 	@Autowired
 	private CursoRepository cursoRepository;
-	
 
 	public Curso salvarCurso(@Valid Curso curso) {	
 		return cursoRepository.save(curso);
@@ -41,12 +38,10 @@ public class CursoService {
 			return cursoid;
 		}
 		throw new NegocioExcpetion("Id não encontrado.");
-		
 	}
 	
-	public void deletarCurso(@PathVariable("id") Integer id) {
+	public void deletarCurso( Integer id ) {
 			cursoRepository.deleteById(id);
-		
 	}
 	
 }

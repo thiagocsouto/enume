@@ -1,8 +1,12 @@
 package com.curso.enume.enuns;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public enum Uf {
 	
-//	SELECIONE("selecione"),
 	AC("ac"),
 	AL("al"),
 	AP("ap"),
@@ -33,8 +37,5 @@ public enum Uf {
 	
 	private String uf;
 	
-	private Uf(String uf) {
-		this.uf = uf;
-	}
 
 }

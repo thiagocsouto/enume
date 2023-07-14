@@ -115,43 +115,46 @@
 	                            <a class="btn btn-info btn-sm" th:href="@{/funcionarios/editar/{id}(id=${funcionario.id})}" role="button">
 	                                <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
 	                            </a>
-	                            <button type="button" class="btn btn-danger btn-sm"
-	                                    data-bs-toggle="modal" data-bs-target="#myModal">
+	                            <a class="btn btn-danger btn-sm" th:href="@{/funcionarios/excluir/{id}(id=${funcionario.id})}" role="button">
 	                                <span class="oi oi-circle-x" title="Excluir" aria-hidden="true"></span>
-	                            </button>
+	                            </a>
+<!-- 	                            <button type="button" class="btn btn-danger btn-sm" -->
+<!-- 	                                    data-bs-toggle="modal" data-bs-target="#myModal"> -->
+<!-- 	                                <span class="oi oi-circle-x" title="Excluir" aria-hidden="true"></span> -->
+<!-- 	                            </button> -->
 	                    
-	                            <!-- Modal -->
-	                            <div class="modal fade" id="myModal" tabindex="-1"
-									aria-labelledby="exampleModalLabel" aria-hidden="true">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<h5 class="modal-title" id="exampleModalLabel">Enume</h5>
-												<button type="button" class="btn-close" data-bs-dismiss="modal"
-													aria-label="Close"></button>
-											</div>
-											<div class="modal-body">Deseja realmente excluir o Funcionário?</div>
-											<div class="modal-footer">
-												<a th:href="@{/funcionarios/excluir/{id}(id=${funcionario.id})}"><button type="button" class="btn btn-danger" >Continuar</button></a>
-												<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
-											</div>
-										</div> 
-									</div>
-								</div>
+<!-- 	                            Modal -->
+<!-- 	                            <div class="modal fade" id="myModal" tabindex="-1" -->
+<!-- 									aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
+<!-- 									<div class="modal-dialog"> -->
+<!-- 										<div class="modal-content"> -->
+<!-- 											<div class="modal-header"> -->
+<!-- 												<h5 class="modal-title" id="exampleModalLabel">Enume</h5> -->
+<!-- 												<button type="button" class="btn-close" data-bs-dismiss="modal" -->
+<!-- 													aria-label="Close"></button> -->
+<!-- 											</div> -->
+<!-- 											<div class="modal-body">Deseja realmente excluir o Funcionário?</div> -->
+<!-- 											<div class="modal-footer"> -->
+<!-- 												<a th:href="@{/funcionarios/excluir/{id}(id=${funcionario.id})}"><button type="button" class="btn btn-danger" >Continuar</button></a> -->
+<!-- 												<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button> -->
+<!-- 											</div> -->
+<!-- 										</div>  -->
+<!-- 									</div> -->
+<!-- 								</div> -->
 	                       </td>
 	                    </tr>
 	                    </tbody>
 	                </table>
-	            </div>
+	            </div>    
 
-		<nav aria-label="...">
-			<ul class="pagination pagination-sm">
-				<li class="page-item active" aria-current="page"><span
-					class="page-link">1</span></li>
-				<li class="page-item"><a class="page-link" href="#">2</a></li>
-				<li class="page-item"><a class="page-link" href="#">3</a></li>
-			</ul>
-		</nav>
+<!-- 		<nav aria-label="..."> -->
+<!-- 			<ul class="pagination pagination-sm"> -->
+<!-- 				<li class="page-item active" aria-current="page"><span -->
+<!-- 					class="page-link">1</span></li> -->
+<!-- 				<li class="page-item"><a class="page-link" href="#">2</a></li> -->
+<!-- 				<li class="page-item"><a class="page-link" href="#">3</a></li> -->
+<!-- 			</ul> -->
+<!-- 		</nav> -->
 
 	</div>
 	        

@@ -132,11 +132,9 @@
 	                 
 	                    <div class="form-group col-md-2">
 	                        <label for="cep">Cep</label>
-	                        <input th:errorclass="is-invalid" type="text" class="form-control" id="cep" th:field="*{cep}" data-mask="00000-000"
+	                        <input th:errorclass="is-invalid" type="text" class="form-control" id="cep" th:field="*{cep}" data-mask="00000-000" data-mask-placeholder="_____-___"
 	                               value=""/>
-	                        <div class="invalid-feedback" th:errors="*{cep}">
-	
-	                        </div>
+	                        <div class="invalid-feedback" th:errors="*{cep}"></div>
 	                    </div>
 	                </div>
 	                <br>

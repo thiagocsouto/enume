@@ -1,8 +1,12 @@
 package com.curso.enume.enuns;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public enum Cargo {
 	
-//	SELECIONE("selecione"), 
 	CONTABIL("contabil"),
     ADMINISTRATIVO("administrativo"),
     CONTADOR("contador"),
@@ -13,9 +17,5 @@ public enum Cargo {
 	TI("ti");
 	
 	private String cargo;
-	
-	private Cargo(String cargo) {
-		this.cargo = cargo;
-	}
 
 }

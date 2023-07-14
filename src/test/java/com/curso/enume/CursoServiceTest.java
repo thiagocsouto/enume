@@ -11,16 +11,11 @@ import java.util.List;
 import java.util.Optional;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.curso.enume.entity.Curso;
 import com.curso.enume.exception.NegocioExcpetion;
@@ -31,14 +26,14 @@ import com.curso.enume.service.CursoService;
 public class CursoServiceTest {
 	
 	@InjectMocks
-	private CursoService cursoService;
+	private CursoService cursoService;   
 
-	@Mock
+	@Mock   
 	private CursoRepository cursoRepository;
-
+        
 	@Test
 	void salvarCursoTeste() {
-		Curso curso = new Curso("Java", "teste", "10", "160", "200.00");
+		Curso curso = new Curso(1, "Java", "teste", "10", "160", "200.00");
 		when(cursoRepository.save(any(Curso.class))).thenReturn(curso);
 		
 		Curso salvarCurso = cursoService.salvarCurso(curso);
@@ -67,9 +62,9 @@ public class CursoServiceTest {
 	
 	@Test
 	void testeEncontrarTodosOsIdFuncionario() {
-		Curso curso1 = new Curso("Java", "Um curso bom de programação Java", "10", "160", "200.00");
-		Curso curso2 = new Curso("Html", "Um curso bom de html", "10", "160", "200.00");
-		Curso curso3 = new Curso("Linux", "Um curso bom de linux", "10", "160", "200.00");
+		Curso curso1 = new Curso(1, "Java", "Um curso bom de programação Java", "10", "160", "200.00");
+		Curso curso2 = new Curso(2, "Html", "Um curso bom de html", "10", "160", "200.00");
+		Curso curso3 = new Curso(3, "Linux", "Um curso bom de linux", "10", "160", "200.00");
         doReturn(Arrays.asList(curso1, curso2, curso3)).when(cursoRepository).findAll();
         
         List<Curso> cursos = cursoService.listarCurso();

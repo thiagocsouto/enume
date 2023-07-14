@@ -22,11 +22,11 @@ public class FuncionarioService {
 	
 	public Funcionario salvarFuncionarios(@RequestBody @Valid Funcionario funcionario) throws Exception {
 	
-        Funcionario existeMatricula = funcionarioRepository.findByMatricula(funcionario.getMatricula());
-        
-        if (existeMatricula != null) {
-			throw new NegocioExcpetion("Matrícula já cadastrada no sistema.");
-		}
+//        Funcionario existeMatricula = funcionarioRepository.findByMatricula(funcionario.getMatricula());
+//        
+//        if (existeMatricula != null) {
+//			throw new NegocioExcpetion("Matrícula já cadastrada no sistema.");
+//		}
 		
 		return funcionarioRepository.save(funcionario);
 	}
