@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.curso.enume.dto.FuncionarioDto;
 import com.curso.enume.entity.Funcionario;
 import com.curso.enume.exception.NegocioExcpetion;
 import com.curso.enume.service.FuncionarioService;
@@ -32,29 +34,29 @@ public class FuncionarioController {
 	}
 	
 	@GetMapping("/cadastrar")
-	public ModelAndView cadastrarFuncionario(Funcionario funcionario) {
+	public ModelAndView cadastrarFuncionario(FuncionarioDto funcionarioDto) {
 	      ModelAndView mv = new ModelAndView();
 	      mv.setViewName("/administrativo/funcionarios/cadastro");
-	      mv.addObject("funcionario", new Funcionario());
+	      mv.addObject("funcionarioDto", new FuncionarioDto(null, null, null, null, null, null, null, null, null, null, null, null));
 	      return mv;
 	}
 	
 	@PostMapping("/cadastrar")
-	public ModelAndView salvarFuncionario(@Valid Funcionario funcionario, BindingResult result) throws Exception {
+	public ModelAndView salvarFuncionario(@Valid FuncionarioDto funcionarioDto, BindingResult result) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		if (result.hasErrors()) {
 			  mv.setViewName("/administrativo/funcionarios/cadastro");
-			  mv.addObject(funcionario);
+			  mv.addObject(funcionarioDto);
 		      return mv;
 		}
 		   try {
-			   funcionarioService.salvarFuncionarios(funcionario);
+			   funcionarioService.salvarFuncionarios(funcionarioDto);
 				mv.setViewName("redirect:/funcionarios/listar");
 				return mv;  
 		} catch (NegocioExcpetion e) {
 			result.rejectValue("matricula", "error.funcionario", e.getMessage());
 			mv.setViewName("/administrativo/funcionarios/cadastro");
-			mv.addObject(funcionario);
+			mv.addObject(funcionarioDto);
 			return mv;
 		}
 		
@@ -66,19 +68,19 @@ public class FuncionarioController {
 		 ModelAndView mv = new ModelAndView();
 	      mv.setViewName("/administrativo/funcionarios/cadastro");
 	      Optional<Funcionario> funcionario = funcionarioService.listarFuncionariosId(id);
-	      mv.addObject("funcionario", funcionario);
+	      mv.addObject("funcionarioDto", funcionario);
 	      return mv;
 	}
 	
 	@PostMapping("/editar/{id}")
-	public ModelAndView editarFuncionario(@Valid Funcionario funcionario, BindingResult result) throws Exception {
+	public ModelAndView editarFuncionario(@Valid FuncionarioDto funcionarioDto, BindingResult result) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		if (result.hasErrors()) {
 			  mv.setViewName("/administrativo/funcionarios/cadastro");
-			  mv.addObject(funcionario);
+			  mv.addObject(funcionarioDto);
 		      return mv;
 		}
-			funcionarioService.salvarFuncionarios(funcionario);
+			funcionarioService.salvarFuncionarios(funcionarioDto);
 			mv.setViewName("redirect:/funcionarios/listar");
 			return mv;  
      }

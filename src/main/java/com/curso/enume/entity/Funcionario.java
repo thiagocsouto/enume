@@ -37,14 +37,6 @@ public class Funcionario implements Serializable{
 	@NotBlank
 	private String nome;
 	
-//	@Temporal(TemporalType.DATE) 
-//	@Column(name="data_entrada")
-//	private Date dataEntrada;
-//	
-//	@Temporal(TemporalType.DATE)
-//	@Column(name="data_saída")
-//	private Date dataSaida;
-	
 	@NotBlank
 	private String cargo;
 	
