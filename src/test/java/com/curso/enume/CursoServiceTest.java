@@ -17,6 +17,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import com.curso.enume.dto.CursoDto;
 import com.curso.enume.entity.Curso;
 import com.curso.enume.exception.NegocioExcpetion;
 import com.curso.enume.repository.CursoRepository;
@@ -33,13 +34,23 @@ public class CursoServiceTest {
         
 	@Test
 	void salvarCursoTeste() {
-		Curso curso = new Curso(1, "Java", "teste", "10", "160", "200.00");
-		when(cursoRepository.save(any(Curso.class))).thenReturn(curso);
-		
-		Curso salvarCurso = cursoService.salvarCurso(curso);
-		
-		assertNotNull(salvarCurso);
-		
+	    CursoDto cursoDto = CursoDto.builder()
+	    		.id(1)
+	    		.nome("Java")
+	    		.descricao("Teste")
+	    		.cargaHoraria("Teste")
+	    		.quantidadeVaga("10")
+	    		.valor("Teste")
+	    		.build();
+
+	    // Chama o repositorio
+	    when(cursoRepository.save(any(Curso.class))).thenReturn(new Curso());
+
+	    // Chama o serviço
+	    Curso salvarCurso = cursoService.salvarCurso(cursoDto);
+
+	    // Verifica se o curso retornado não é nulo
+	    assertNotNull(salvarCurso);
 	}
 
 	
